@@ -19,4 +19,4 @@ export 'package:tasks_demo_flutter/ux/screen/uxds_scaffold.dart';
 
 
 // utils
-export 'package:tasks_demo_flutter/core/utils/validators.dart';
+export 'package:tasks_demo_flutter/ux/utils/uxds_app_theme.dart';

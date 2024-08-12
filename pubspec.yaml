@@ -45,3 +45,7 @@ flutter:
   assets:
     - assets/lottie/empty_box.json
     - assets/icon/tasks.png
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
