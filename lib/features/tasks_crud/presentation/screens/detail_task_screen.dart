@@ -95,6 +95,7 @@ class _DetailTaskScreenState extends State<DetailTaskScreen> {
                     child: Column(
                       children: [
                         UXDSFormField(
+                          keyboardType: TextInputType.name,
                           controller: title,
                           labelText: 'Name *',
                           validator: (value) => Validators.validate(

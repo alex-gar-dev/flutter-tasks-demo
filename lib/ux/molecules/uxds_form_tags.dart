@@ -59,6 +59,7 @@ class _UXDSFormTagsState extends State<UXDSFormTags> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         UXDSFormField(
+          keyboardType: TextInputType.text,
           focusNode: focusNode1,
           controller: ctr,
           labelText: widget.labelText,

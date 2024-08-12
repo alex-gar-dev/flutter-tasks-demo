@@ -54,6 +54,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             child: Column(
               children: [
                 UXDSFormField(
+                  keyboardType: TextInputType.name,
                   controller: title,
                   labelText: 'Name *',
                   validator: (value) => Validators.validate(
