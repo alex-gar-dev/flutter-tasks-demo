@@ -1,9 +1,18 @@
 import 'package:go_router/go_router.dart';
+import 'package:tasks_demo_flutter/features/auth/index.dart';
 import 'package:tasks_demo_flutter/features/tasks_crud/presentation/screens/screens.dart';
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/login',
   routes: [
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => const RegisterScreen(),
+    ),
     GoRoute(
       path: '/',
       builder: (context, state) => const TasksScreen(),
@@ -15,7 +24,7 @@ final router = GoRouter(
     GoRoute(
       path: '/detail/:id',
       builder: (context, state) => DetailTaskScreen(
-        id: int.tryParse(state.pathParameters['id'] ?? '0') ?? 0
+        id: state.pathParameters['id'] ?? '0'
       ),
     ),
   ],

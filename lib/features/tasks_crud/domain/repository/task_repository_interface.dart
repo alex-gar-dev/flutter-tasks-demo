@@ -4,7 +4,7 @@ import 'package:tasks_demo_flutter/features/tasks_crud/data/models/task_card.dar
 abstract class TaskRepositoryInterface {
   Future<List<TaskCard>?> getTasks();
   Future<Task?> getTask({
-    required int id
+    required String id
   });
   Future<Task?> postTasks({
     required Task task
@@ -13,6 +13,6 @@ abstract class TaskRepositoryInterface {
     required Task task
   });
   Future<bool> deleteTask({
-    required int id
+    required String id
   });
 }

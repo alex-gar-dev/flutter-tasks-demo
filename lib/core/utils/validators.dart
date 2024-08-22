@@ -14,6 +14,18 @@ class Validators {
             error = 'Please enter some text';
           }
           break;
+        case 'email':
+          final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+          if (!emailRegex.hasMatch(value ?? '')) {
+            error = 'Invalid email';
+          }
+          break;
+        case 'password':
+          final passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$');
+          if (!passwordRegex.hasMatch(value ?? '')) {
+            error = 'Password must be at least 8 characters long and include at least one uppercase letter and one number.';
+          }
+          break;
         case 'validate_date':
           String date =  value ?? '';
           DateFormat formato = DateFormat('dd/MM/yyyy');

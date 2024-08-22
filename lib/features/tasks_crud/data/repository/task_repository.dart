@@ -25,7 +25,7 @@ class TaskRepository extends TaskRepositoryInterface {
   
   @override
   Future<Task?> getTask({
-    required int id
+    required String id
   }) async {
     try {
       final Response response = await _host.service.get('tasks/$id');
@@ -68,7 +68,6 @@ class TaskRepository extends TaskRepositoryInterface {
     required Task task
   }) async {
     try {
-      print(task.toJson());
       final Response response = await _host.service.put('tasks/${task.id}', data: task.toJson(),
         options: Options(
           headers: {
@@ -89,7 +88,7 @@ class TaskRepository extends TaskRepositoryInterface {
 
   @override
   Future<bool> deleteTask({
-    required int id
+    required String id
   }) async {
     try {
       final Response response = await _host.service.delete(

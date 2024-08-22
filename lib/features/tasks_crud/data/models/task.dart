@@ -4,7 +4,7 @@ import 'package:tasks_demo_flutter/features/tasks_crud/domain/models/task_interf
 class Task implements TaskInterface {
   
   @override
-  final int id;
+  final String id;
   @override
   final String title;
   @override
@@ -42,7 +42,7 @@ class Task implements TaskInterface {
   }
   
   Task copyWith({
-    int? id,
+    String? id,
     String? title,
     bool? isCompleted,
     String? date,
@@ -55,7 +55,7 @@ class Task implements TaskInterface {
 
   Map<String, dynamic> toJson() => {
     'title': title,
-    'is_completed': isCompleted ? 1 : 0,
+    'is_completed': isCompleted,
     'due_date': ParserDates.parseDate(
       date: date ?? '',
       initalFormat: 'dd/MM/yyyy',

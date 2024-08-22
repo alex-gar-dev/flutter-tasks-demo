@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasks_demo_flutter/core/core.dart';
+import 'package:tasks_demo_flutter/features/auth/index.dart';
 import 'package:tasks_demo_flutter/features/tasks_crud/presentation/cubit/tasks_cubit.dart';
 import 'package:tasks_demo_flutter/ux/ux_design_system.dart';
 
@@ -13,6 +14,9 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (BuildContext context) => TasksCubit(InitTaskState())
+        ),
+        BlocProvider(
+          create: (BuildContext context) => AuthCubit(UnauthenticatedAuthState())
         )
       ],
       child: BlocBuilder<TasksCubit, TasksState>(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tasks_demo_flutter/features/auth/index.dart';
 import 'package:tasks_demo_flutter/features/tasks_crud/presentation/cubit/tasks_cubit.dart';
 import 'package:tasks_demo_flutter/features/tasks_crud/presentation/widgets/tasks_list.dart';
 import 'package:tasks_demo_flutter/ux/utils/utils.dart';
@@ -11,19 +12,30 @@ class TasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final auth = context.read<AuthCubit>();
+    context.read<TasksCubit>().getTasks();
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          color: UXDSColorApp.backgroudPurple,
-          padding: const EdgeInsets.all(15),
-          alignment: Alignment.centerLeft,
-          icon: const Icon(Icons.refresh),
-          onPressed: () {
-            context.read<TasksCubit>().getTasks();
-          },
-          iconSize: 30,
-        ),
+        actions: [
+          IconButton(
+            color: UXDSColorApp.backgroudPurple,
+            padding: const EdgeInsets.all(15),
+            alignment: Alignment.centerLeft,
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              context.read<TasksCubit>().getTasks();
+            },
+            iconSize: 30,
+          ),
+        ],
         title: const Text('My tasks'),
+      ),
+      drawer: UXDSDrawerProfile(
+        label: auth.getUserName(),
+        onPressed: () {
+          auth.logout();
+          context.go('/login');
+        },
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(

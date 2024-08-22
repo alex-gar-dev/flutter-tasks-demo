@@ -1,6 +1,6 @@
 abstract class TaskInterface {
   
-  final int id;
+  final String id;
   final String title;
   final bool isCompleted;
   final String? date;

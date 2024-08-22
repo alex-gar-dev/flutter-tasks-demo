@@ -1,0 +1,1 @@
+enum RegisterStatus { ok, weekPassword, emailAlreadyInUse, unknown }

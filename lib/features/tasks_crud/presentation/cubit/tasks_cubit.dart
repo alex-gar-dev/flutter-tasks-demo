@@ -6,9 +6,7 @@ import 'package:tasks_demo_flutter/features/tasks_crud/domain/repository/task_re
 part 'tasks_state.dart';
 
 class TasksCubit extends Cubit<TasksState> {
-  TasksCubit(super.initialState) {
-    getTasks();
-  }
+  TasksCubit(super.initialState);
 
   final _taskRepository = GetIt.instance<TaskRepositoryInterface>();
   
@@ -68,7 +66,7 @@ class TasksCubit extends Cubit<TasksState> {
   }
 
   Future<void> deleteTask({
-    required int id
+    required String id
   }) async {
     final s = state;
     if (s is LoadedTaskState) {

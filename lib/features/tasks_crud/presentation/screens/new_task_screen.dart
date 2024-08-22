@@ -112,10 +112,9 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
           if (!_formKey.currentState!.validate()) {
             return;
           }
-          print(tags);
           context.read<TasksCubit>().addTask(
             task: Task(
-              id: 0,
+              id: '',
               title: title.value.text, 
               date: date.value.text,
               comments: comments.value.text,

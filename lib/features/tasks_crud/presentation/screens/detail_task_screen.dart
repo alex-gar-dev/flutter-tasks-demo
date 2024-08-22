@@ -10,7 +10,7 @@ import 'package:tasks_demo_flutter/features/tasks_crud/presentation/widgets/widg
 import 'package:tasks_demo_flutter/ux/ux_design_system.dart';
 
 class DetailTaskScreen extends StatefulWidget {
-  final int id;
+  final String id;
   const DetailTaskScreen({
     required this.id,
     super.key
@@ -157,7 +157,6 @@ class _DetailTaskScreenState extends State<DetailTaskScreen> {
                   if (!_formKey.currentState!.validate()) {
                     return;
                   }
-                  print(tags);
                   context.read<TasksCubit>().updateTask(
                     task: Task(
                       id: widget.id,

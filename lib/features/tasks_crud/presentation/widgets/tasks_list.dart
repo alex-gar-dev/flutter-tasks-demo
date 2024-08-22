@@ -18,11 +18,10 @@ class TasksList extends StatelessWidget {
       itemCount: tasks.length,
       itemBuilder: (context, index) {
         final TaskCard tc = tasks[index];
-        final int id = tc.id;
+        final String id = tc.id;
         return UXDSCardTask(
           title: tc.title,
           isCompleted: tc.isCompleted,
-          description: tc.date,
           date: tc.date,
           onTap: () => context.push('/detail/$id'),
         );

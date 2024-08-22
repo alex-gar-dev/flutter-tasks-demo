@@ -11,8 +11,12 @@ class UXDSFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final FocusNode? focusNode;
   final TextInputType? keyboardType;
-  final int? maxLines;
+  final int maxLines;
   final List<TextInputFormatter>? inputFormatters;
+  final bool? enabled;
+  final bool obscureText;
+  final bool enableSuggestions;
+  final bool autocorrect;
 
   const UXDSFormField({
     super.key,
@@ -24,8 +28,12 @@ class UXDSFormField extends StatelessWidget {
     this.suffixIcon,
     this.focusNode,
     this.keyboardType = TextInputType.none,
-    this.maxLines,
-    this.inputFormatters
+    this.maxLines =  1,
+    this.inputFormatters,
+    this.obscureText = false,
+    this.enableSuggestions = true,
+    this.autocorrect = true,
+    this.enabled
   });
 
   @override
@@ -39,6 +47,10 @@ class UXDSFormField extends StatelessWidget {
         labelText: labelText,
         suffixIcon: suffixIcon,
       ),
+      enabled: enabled,
+      enableSuggestions: enableSuggestions,
+      obscureText: obscureText,
+      autocorrect: autocorrect,
       keyboardType: keyboardType,
       maxLines: maxLines,
       validator: validator,

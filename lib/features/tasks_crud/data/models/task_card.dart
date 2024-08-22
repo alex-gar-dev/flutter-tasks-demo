@@ -19,7 +19,7 @@ class TaskCard extends TaskInterface {
     );
   
   TaskCard copyWith({
-    int? id,
+    String? id,
     String? title,
     bool? isCompleted,
   }) => TaskCard(
