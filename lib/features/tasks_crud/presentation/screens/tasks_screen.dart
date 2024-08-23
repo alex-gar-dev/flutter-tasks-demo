@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -59,10 +60,16 @@ class TasksScreen extends StatelessWidget {
               );
             }
             if (state is ErrorTaskState) {
-              return const Text('Error al obtener tareas');
+              return const SafeArea(
+                child: Center(
+                  child: Text('Error fetching data')
+                ),
+              );
             }
-            return const Center(
-              child: CircularProgressIndicator()
+            return const SafeArea(
+              child: Center(
+                child: CircularProgressIndicator()
+              ),
             );
           },
         ),

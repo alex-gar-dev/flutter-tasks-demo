@@ -33,7 +33,7 @@ class Task implements TaskInterface {
     return Task(
       id: map['id'] ?? '',
       title: map['title'] ?? '',
-      isCompleted: (map['is_completed'] ?? 0) == 1,
+      isCompleted: map['is_completed'] ?? false,
       date: ParserDates.parseDate(date: map['due_date'] ?? ''),
       comments: map['comments'],
       description: map['description'],

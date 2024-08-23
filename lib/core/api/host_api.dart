@@ -15,7 +15,7 @@ class HostApi {
     _service.options.connectTimeout = const Duration(seconds: 5);
     _service.options.receiveTimeout = const Duration(seconds: 3);
     _service.options.headers = {
-      'Authorization': 'Bearer ${EnviromentVariables.token}'
+      'Authorization': 'Bearer'
     };
     _service.options.queryParameters = {
       'token': 'user_demo_test'

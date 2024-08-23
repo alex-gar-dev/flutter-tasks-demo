@@ -68,4 +68,24 @@ class FirebaseAuthentication implements AuthenticatonInterface {
       return RegisterStatus.unknown;
     }
   }
+  
+  @override
+  Future<bool> isLogged() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      return user == null;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  @override
+  String getUserId() {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      return user.uid;
+    }
+    return '';
+  }
+
 }

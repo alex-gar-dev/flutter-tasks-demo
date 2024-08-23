@@ -39,6 +39,9 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<bool> logout() async {
     bool response = await authRepository.logout();
+    if (response) {
+      emit(UnauthenticatedAuthState());
+    }
     return response;
   }
 

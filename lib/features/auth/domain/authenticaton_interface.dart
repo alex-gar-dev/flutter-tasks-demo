@@ -11,4 +11,6 @@ abstract class AuthenticatonInterface {
     required String emailAddress,
     required String password
   });
+  Future<bool> isLogged();
+  String getUserId();
 }
